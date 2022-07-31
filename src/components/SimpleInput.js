@@ -1,4 +1,5 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
+// import { useRef } from "react";
 
 const SimpleInput = (props) => {
   // v. 1 (useRef)
@@ -12,9 +13,10 @@ const SimpleInput = (props) => {
   };
 
   const formSubmissionHandler = (e) => {
+    // prevents default page reload
     e.preventDefault();
 
-    // validation v. 1
+    // validation v. 1 - check ifthere's no entry
     if (enteredName.trim() === '') {
       setEnteredNameIsValid(false);
       // stops the code running
