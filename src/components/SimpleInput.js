@@ -9,6 +9,7 @@ const SimpleInput = (props) => {
   const [enteredNameIsValid, setEnteredNameIsValid] = useState(false);
   const [enteredNameTouched, setEnteredNameTouched] = useState(false);
 
+  // avoid having useState as true
   useEffect(() => {
     if (enteredNameIsValid) {
       console.log("Name Input is valid!");
