@@ -8,8 +8,14 @@ const SimpleInput = (props) => {
   const [enteredName, setEnteredName] = useState("");
   const [enteredNameTouched, setEnteredNameTouched] = useState(false);
 
-  const enteredNameIsValid = enteredName.trim() !== '';
+  const enteredNameIsValid = enteredName.trim() !== "";
   const nameInputIsInvalid = !enteredNameIsValid && enteredNameTouched;
+
+  let formIsValid = false;
+
+  if (enteredNameIsValid) {
+    formIsValid = true;
+  }
 
   const nameInputChangeHandler = (e) => {
     setEnteredName(e.target.value);
@@ -17,7 +23,7 @@ const SimpleInput = (props) => {
 
   const nameInputBlurHandler = (e) => {
     setEnteredNameTouched(true);
-  }
+  };
 
   const formSubmissionHandler = (e) => {
     // prevents default page reload
@@ -65,7 +71,7 @@ const SimpleInput = (props) => {
         )}
       </div>
       <div className="form-actions">
-        <button>Submit</button>
+        <button disabled={!formIsValid}>Submit</button>
       </div>
     </form>
   );
